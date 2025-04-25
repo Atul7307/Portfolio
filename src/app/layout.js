@@ -2,9 +2,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
 import FireFliesBackground from "@/components/FireFliesBackground";
-import HomeBtn from "@/components/HomeBtn";
 import Sound from "@/components/Sound";
-import Footer from "@/components/Footer"; // Import the Footer component
+import Footer from "@/components/Footer"; 
 
 const inter = Inter({
   subsets: ["latin"],
@@ -14,12 +13,15 @@ const inter = Inter({
 export const metadata = {
   title: {
     template:
-      "Portfolio Created with Three.js and Tailwind CSS | %s ",
+      "Atul`s Portfolio ",
     default:
-      "Next.js Portfolio Created with Three.js and Tailwind CSS ",
+      "Atul`s Portfolio",
+  },
+  icons: {
+    icon: "/favicon.ico", 
   },
   description:
-    "A unique creative portfolio designed by CodeBucks with cutting-edge technologies like Next.js, Tailwind CSS, Three.js, and Framer Motion. Experience the art of modern web development firsthand. Checkout CodeBucks on youtube.",
+    "A unique creative portfolio designed by Atul with cutting-edge technologies like Next.js, Tailwind CSS, Three.js, and Framer Motion. Experience the art of modern web development firsthand.",
 };
 
 export default function RootLayout({ children }) {

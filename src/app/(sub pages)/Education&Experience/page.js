@@ -1,40 +1,28 @@
 'use client';
 
-import { educations } from "../../../components/Education/educations";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { BsPersonWorkspace } from "react-icons/bs";
-import lottieFile from '@/app/assets/study.json';
-import experience from '@/app/assets/code.json';
-import AnimationLottie from "@/app/assets/animation";
-import GlowCard from "@/app/assets/Glow-Card";
-import bg from '../../../../public/background/image.png';
-import {experiences} from "../../../components/Experience/experience";
-import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
-
-// Dynamically import 3D components with { ssr: false } to prevent server rendering
-const RenderModel = dynamic(() => import('@/components/RenderModel'), { 
-  ssr: false,
-  loading: () => null 
-});
-
-const Staff = dynamic(() => import('@/components/models/Staff'), { 
-  ssr: false,
-  loading: () => null 
-});
+import Image from "next/image";
+import bg from '../../../../public/background/image.png';
 
 export default function EducationExperience() {
-  // Use state to track client-side rendering
-  const [isClient, setIsClient] = useState(false);
+  // State to track if we're running in the browser
+  const [isBrowser, setIsBrowser] = useState(false);
+  // State to hold our dynamically imported component
+  const [ContentComponent, setContentComponent] = useState(null);
 
-  // Only render the 3D components after the component mounts on the client
   useEffect(() => {
-    setIsClient(true);
+    // Mark that we're in the browser
+    setIsBrowser(true);
+    
+    // Import the content component only in the browser
+    import('./EducationExperienceContent').then(module => {
+      setContentComponent(() => module.default);
+    });
   }, []);
 
   return (
     <>
+      {/* Background image - safe to render on server */}
       <Image
         src={bg}
         alt="background image"
@@ -42,135 +30,16 @@ export default function EducationExperience() {
         sizes="100vw"
         className="-z-50 fixed top-0 left-0 w-full h-full object-cover object-center opacity-30"
       />
-
-      <div id="education" className="w-full z-50">
-        <div className="flex justify-center my-5 lg:py-8">
-          <div className="flex items-center">
-            <span className="w-24 h-[2px] bg-[#1a1443]"></span>
-            <span className="bg-accent w-fit text-center text-[#1a1443] p-2 px-5 text-lg md:text-5xl font-extrabold rounded-lg">
-              EDUCATIONS
-            </span>
-            <span className="w-24 h-[2px] bg-[#1a1443]"></span>
-          </div>
-        </div>
-
-        <div className="py-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-            <div className="flex justify-center items-start">
-              <div className="w-3/4 h-3/4">
-                <AnimationLottie animationPath={lottieFile} />
-              </div>
-            </div>
-
-            <motion.div className="flex flex-col gap-6 hover:shadow-md justify-center">
-              {educations.map(education => (
-                <GlowCard key={education.id} identifier={`education-${education.id}`}>
-                  <div className="p-3 relative text-white">
-                    <Image
-                      src="/blur-23.svg"
-                      alt="Hero"
-                      width={1080}
-                      height={200}
-                      className="hidden md:block absolute h-full bottom-0 opacity-80"
-                    />
-                    <div className="flex justify-center">
-                      <p className="text-xs sm:text-sm text-accent">
-                        {education.duration}
-                      </p>
-                    </div>
-                    <div className="flex flex-col sm:flex-row items-center gap-x-8 gap-1 sm:px-3 py-5">
-                      <div className="text-accent transition-all duration-300 hover:scale-125">
-                        <BsPersonWorkspace size={36} />
-                      </div>
-                      <div>
-                        <p className="text-base sm:text-xl mb-2 font-medium uppercase">
-                          {education.title}
-                        </p>
-                        <p className="text-sm sm:text-base">{education.institution}</p>
-                        <p className="text-sm sm:text-base font-semibold">CGPA: {education.CGPA}</p>
-                      </div>
-                    </div>
-                  </div>
-                </GlowCard>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      </div>
-
-      <div id="Experience" className="w-full z-50">
-        <div className="flex justify-center my-5 lg:py-8">
-          <div className="flex items-center">
-            <span className="w-24 h-[2px] bg-[#1a1443]"></span>
-            <span className="bg-accent w-fit text-center text-[#1a1443] p-2 px-5 text-lg md:text-5xl font-extrabold rounded-lg">
-              Experiences
-            </span>
-            <span className="w-24 h-[2px] bg-[#1a1443]"></span>
-          </div>
-        </div>
-
-        <div className="py-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-            <div className="order-last md:order-first">
-              <motion.div className="flex flex-col gap-6 hover:shadow-md">
-                {experiences.map(experience => (
-                  <GlowCard key={experience.id} identifier={`experience-${experience.id}`}>
-                    <div className="p-3 relative text-white">
-                      <Image
-                        src="/blur-23.svg"
-                        alt="Hero"
-                        width={1080}
-                        height={200}
-                        className="absolute h-full bottom-0 opacity-80"
-                      />
-                      <div className="flex justify-center">
-                        <p className="text-xs sm:text-sm text-[#16f2b3]">
-                          {experience.duration}
-                        </p>
-                      </div>
-                      <div className="flex items-center flex-col sm:flex-row gap-2 gap-x-8 sm:px-3 py-5">
-                        <div className="text-violet-500 transition-all duration-300 hover:scale-125">
-                          <BsPersonWorkspace size={36} />
-                        </div>
-                        <div>
-                          <p className="text-base sm:text-xl mb-2 font-medium uppercase">
-                            <span>{experience.title} </span>
-                            <span className="text-sm text-gray-400">({experience.location})</span>
-                          </p>
-                          <p className="text-sm sm:text-base font-semibold">{experience.role}</p>
-                          <p className="text-sm sm:text-sm">{experience.description}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </GlowCard>
-                ))}
-              </motion.div>
-            </div>
-
-            <div className="flex justify-center items-start">
-              <div className="w-full h-full">
-                <AnimationLottie animationPath={experience} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       
-      {/* Only render 3D models on client-side */}
-      {isClient && (
-        <>
-          <div className="flex items-center justify-center fixed top-16 lg:top-20 -translate-x-1/2 lg:translate-x-0 -z-20 left-1/2 lg:-left-24 h-screen">
-            <RenderModel>
-              <Staff />
-            </RenderModel>
-          </div>
-          <div className="hidden md:flex items-center justify-center fixed top-16 lg:top-20 -translate-x-1/2 lg:translate-x-0 -z-20 right-1/2 lg:-right-24 h-screen">
-            <RenderModel>
-              <Staff />
-            </RenderModel>
-          </div>
-        </>
+      {/* Show loading state if content isn't loaded yet */}
+      {!ContentComponent && (
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="text-2xl text-accent font-bold">Loading education & experience...</div>
+        </div>
       )}
+      
+      {/* Render the content component once we're in the browser and it's loaded */}
+      {isBrowser && ContentComponent && <ContentComponent />}
     </>
   );
 }

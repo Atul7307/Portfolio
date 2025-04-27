@@ -4,10 +4,10 @@ import { educations } from "../../../components/Education/educations";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { BsPersonWorkspace } from "react-icons/bs";
-import lottieFile from '../../assets/study.json';
-import experience from '../../assets/code.json';
-import AnimationLottie from "../../assets/animation";
-import GlowCard from "../../assets/Glow-Card";
+import lottieFile from '@/app/assets/study.json';
+import experience from '@/app/assets/code.json';
+import AnimationLottie from "@/app/assets/animation";
+import GlowCard from "@/app/assets/Glow-Card";
 import bg from '../../../../public/background/image.png';
 import Staff from "@/components/models/Staff";
 import RenderModel from "@/components/RenderModel";
@@ -103,7 +103,7 @@ export default function EducationExperience() {
           <div className="order-last md:order-first">
               <motion.div className="flex flex-col gap-6 hover:shadow-md">
                 {experiences.map(experience => (
-                  <GlowCard key={experience.id} identifier={`education-${experience.id}`}>
+                  <GlowCard key={experience.id} identifier={`experience-${experience.id}`}>
                     <div className="p-3 relative text-white">
                       <Image
                         src="/blur-23.svg"

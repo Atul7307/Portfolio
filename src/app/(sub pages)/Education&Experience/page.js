@@ -11,11 +11,28 @@ import GlowCard from "@/app/assets/Glow-Card";
 import bg from '../../../../public/background/image.png';
 import {experiences} from "../../../components/Experience/experience";
 import dynamic from 'next/dynamic';
+import { useEffect, useState } from 'react';
 
-const RenderModel = dynamic(() => import('@/components/RenderModel'), { ssr: false });
-const Staff = dynamic(() => import('@/components/models/Staff'), { ssr: false });
+// Dynamically import 3D components with { ssr: false } to prevent server rendering
+const RenderModel = dynamic(() => import('@/components/RenderModel'), { 
+  ssr: false,
+  loading: () => null 
+});
+
+const Staff = dynamic(() => import('@/components/models/Staff'), { 
+  ssr: false,
+  loading: () => null 
+});
 
 export default function EducationExperience() {
+  // Use state to track client-side rendering
+  const [isClient, setIsClient] = useState(false);
+
+  // Only render the 3D components after the component mounts on the client
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <>
       <Image
@@ -139,17 +156,21 @@ export default function EducationExperience() {
         </div>
       </div>
       
-      {/* 3D models that are now dynamically imported to prevent server-side rendering */}
-      <div className="flex items-center justify-center fixed top-16 lg:top-20 -translate-x-1/2 lg:translate-x-0 -z-20 left-1/2 lg:-left-24 h-screen">
-        <RenderModel>
-          <Staff />
-        </RenderModel>
-      </div>
-      <div className="hidden md:flex items-center justify-center fixed top-16 lg:top-20 -translate-x-1/2 lg:translate-x-0 -z-20 right-1/2 lg:-right-24 h-screen">
-        <RenderModel>
-          <Staff />
-        </RenderModel>
-      </div>
+      {/* Only render 3D models on client-side */}
+      {isClient && (
+        <>
+          <div className="flex items-center justify-center fixed top-16 lg:top-20 -translate-x-1/2 lg:translate-x-0 -z-20 left-1/2 lg:-left-24 h-screen">
+            <RenderModel>
+              <Staff />
+            </RenderModel>
+          </div>
+          <div className="hidden md:flex items-center justify-center fixed top-16 lg:top-20 -translate-x-1/2 lg:translate-x-0 -z-20 right-1/2 lg:-right-24 h-screen">
+            <RenderModel>
+              <Staff />
+            </RenderModel>
+          </div>
+        </>
+      )}
     </>
   );
 }

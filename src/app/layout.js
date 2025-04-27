@@ -18,7 +18,7 @@ export const metadata = {
       "Atul`s Portfolio",
   },
   icons: {
-    icon: "/favicon.ico", 
+    icon: "/next.svg", 
   },
   description:
     "A unique creative portfolio designed by Atul with cutting-edge technologies like Next.js, Tailwind CSS, Three.js, and Framer Motion. Experience the art of modern web development firsthand.",

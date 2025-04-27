@@ -109,7 +109,8 @@ export default function HomeClientComponent() {
                     >
                         <div className="flex items-center mb-6 select-none">
                             <span className="text-xl md:text-xl lg:text-5xl text-foreground/90 mr-2">Hey, I am a</span>
-                            <span className="text-xl md:text-xl lg:text-5xl text-accent font-semibold h-8 inline-flex items-center select-none">
+                            <br />
+                            <span className="text-sm  sm:text-xl lg:text-5xl text-accent font-semibold h-8 inline-flex items-center select-none">
                                 {displayText}
                                 <span className="w-1 h-6 lg:h-9 bg-accent ml-1 animate-blink"></span>
                             </span>

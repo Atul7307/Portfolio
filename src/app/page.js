@@ -22,8 +22,8 @@ export default function Home() {
         className="-z-50 w-full h-full object-cover object-center opacity-50"
       />
 
-      <div className="mb-5 md:mb-8  pt-4 md:pt-6 w-[35rem]">
-        <Image src={logo} />
+      <div className="mb-5 md:mb-8  pt-4 md:pt-6 w-64 sm:w-[35rem]">
+        <Image src={logo} className="pr-6 sm:pr-0" />
       </div>
 
       <section className="w-full">

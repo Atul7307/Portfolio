@@ -13,7 +13,7 @@ export const metadata = {
   title: "Projects",
 };
 
-export default function Home() {
+export default function Projects() {
   return (
     <>
       <Image

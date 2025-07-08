@@ -118,7 +118,7 @@ export default function HomeClientComponent() {
                     </motion.div>
 
                     <p className="text-base md:text-lg lg:text-2xl text-foreground/70 max-w-[80%] text-center md:text-start mb-8 select-none">
-                        A passionate Full Stack Software Developer 🚀 having an experience of building Web  applications with JavaScript / Reactjs / Nodejs  and some other cool libraries and frameworks.
+                        A passionate Full Stack Software Developer 🚀 having an experience of building Web  applications with HTML | CSS | JavaScript | Reactjs | Nodejs | NextJs | TypeScript | MongoDb  and some other cool libraries and frameworks.
                     </p>
 
                     {/* Link */}

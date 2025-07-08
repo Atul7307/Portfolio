@@ -1,56 +1,55 @@
 
 export const projectsData = [
   {
-    id: 1,
+    name: "Imaginify",
+    description: "An AI-powered SaaS app to generate and transform images with custom prompts. Built using Next.js 15, Tailwind CSS, TypeScript, Clerk, and Cloudinary.",
+    date: "July, 2025",
+    GithubLink: "https://github.com/Atul7307/Imaginify---AI-Image-Generation",
+  },
+  {
     name: "WhatApp Web Clone",
     description: "Simulates real-time messaging with UI similar to WhatsApp Web",
     date: "April , 2025",
     GithubLink: "https://github.com/Atul7307/WhatsApp-Web-Clone",
   },
   {
-    id: 2,
     name: "JobPortal",
     description: "Allows users to search, apply for jobs, and lets recruiters post job listings.",
     date: "April, 2025",
     GithubLink: "https://github.com/Atul7307/JobPortal",
   },
   {
-    id: 3,
     name: "EdEducation",
     description: "An educational site offering free courses and a platform to connect students with teachers.",
     date: "March , 2025",
     GithubLink: "https://github.com/Atul7307/EdEducation",
   },
   {
-    id: 4,
     name: "DiseaseTracking",
     description: "Health monitoring system for disease spread analysis.",
     date: "Nov , 2024",
     GithubLink: "https://github.com/Atul7307/Disease-tracker",
   },
   {
-    id: 5,
     name: "Iskon Vijayawada",
     description: "Devotional website project created during internship",
     date: "Dec , 2024",
     GithubLink: "https://github.com/Atul7307/Iskon-project-Intern",
   },
   {
-    id: 6,
     name: "NetflixClone",
     description: "Streaming service UI replication with movie previews",
     date: "Oct, 2024",
     GithubLink: "https://github.com/Atul7307/Netflix-clone",
   },
   {
-    id: 7,
     name: "TicTacToe",
     description: "Classic grid-based game implementation.",
     date: "July , 2024",
     GithubLink: "https://github.com/Atul7307/Tic-Tac-Toe-Game",
   },
- 
-  ];
+
+];
 
 export const BtnList = [
   { label: "Home", link: "/", icon: "home", newTab: false },

@@ -3,7 +3,8 @@ import "./globals.css";
 import clsx from "clsx";
 import FireFliesBackground from "@/components/FireFliesBackground";
 import Sound from "@/components/Sound";
-import Footer from "@/components/Footer"; 
+import Footer from "@/components/Footer";
+import HomeBtn from "@/components/HomeBtn";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,8 +19,8 @@ export const metadata = {
       "Atul`s Portfolio",
   },
   icons: {
-    icon:"/favicon.ico",
-    shortcut: "/favicon.ico", 
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
   },
   description:
     "A unique creative portfolio designed by Atul with cutting-edge technologies like Next.js, Tailwind CSS, Three.js, and Framer Motion. Experience the art of modern web development firsthand.",
@@ -28,10 +29,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-       <head> 
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2932539371789323"
-            crossorigin="anonymous"></script>
-              </head> 
+      <head>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2932539371789323"
+          crossorigin="anonymous"></script>
+      </head>
       <body
         className={clsx(
           inter.variable,
@@ -39,9 +40,10 @@ export default function RootLayout({ children }) {
         )}
       >
         <FireFliesBackground />
+        <HomeBtn />
         <Sound />
         {children}
-        <Footer /> 
+        <Footer />
         <div id="my-modal" />
       </body>
     </html>

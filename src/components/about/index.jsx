@@ -40,13 +40,10 @@ const AboutDetails = () => {
 
         <ItemLayout className={"col-span-full sm:col-span-6 md:col-span-4 !p-0"}
         >
-          <Image
+          <img
             className="w-full h-auto"
-            src={`${process.env.NEXT_PUBLIC_GITHUB_STATS_URL}/api/top-langs?username=atul7307&theme=transparent&hide_border=true&title_color=FEFE5B&text_color=FFFFFF&icon_color=FEFE5B&text_bold=false`}
+            src={`${process.env.NEXT_PUBLIC_GITHUB_STATS_URL}/api/top-langs?username=atul7307&theme=transparent&hide_border=true&title_color=FEFE5B&text_color=FFFFFF&icon_color=FEFE5B&text_bold=true`}
             alt="Img"
-            loading="lazy"
-            width={500}
-            height={500}
           />
         </ItemLayout>
 

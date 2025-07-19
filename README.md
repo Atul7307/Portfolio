@@ -20,7 +20,7 @@ Starter Code Files👇: <br />
 ![Nextjs Creative Portfolio Website](https://github.com/Atul7307/Portfolio/blob/main/website%20images/Home-desktop.png)
 
 #### About
-![Nextjs Creative Portfolio Website About Page](https://github.com/Atul7307/Portfolio/blob/main/website%20images/About-desktop-full.png)
+![Nextjs Creative Portfolio Website About Page](https://github.com/Atul7307/Portfolio/blob/atul/website%20images/About-desktop-full.png)
 
 #### Projects
 ![Next.js Creative Portfolio Website Projects Page](https://github.com/Atul7307/Portfolio/blob/main/website%20images/Projects-desktop.png)

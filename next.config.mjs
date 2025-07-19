@@ -1,11 +1,19 @@
 // next.config.mjs
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-    reactStrictMode: true,
+  reactStrictMode: true,
+  experimental: {
+    appDir: true, // you're using src/app
+  },
+  images: {
+    formats: ['image/webp', 'image/avif'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
+  },
+};
 
-    experimental: {
-      // This tells Next.js to not statically generate these pages during build
-      unstable_excludeFiles: ['**/app/(sub pages)/Education&Experience/**'],
-    },
-  }
-  
-  export default nextConfig;
+export default nextConfig;

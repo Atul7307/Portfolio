@@ -1,11 +1,22 @@
 import Image from "next/image";
 import bg from "../../public/background/home-background.png";
-import RenderModel from "@/components/RenderModel";
 import Navigation from "@/components/navigation";
-import logo from '../../public/background/logo.png';
+import logo from '../../public/background/logo.webp';
 
 import dynamic from "next/dynamic";
 import HomeClientComponent from "@/components/HomeClientComponent";
+import RippleLoader from "@/components/Loader/RippleLoader";
+import LoadingCircleSpinner from "@/components/Loader/loadingCircleSpinner";
+
+const RenderModel = dynamic(() => import("@/components/RenderModel"), {
+  ssr: false,
+  loading: () => (
+    <div className="flex items-center justify-center h-screen">
+      <LoadingCircleSpinner />
+    </div>
+  ),
+  suspense: true,
+});
 const Wizard = dynamic(() => import("@/components/models/Wizard"), {
   ssr: false,
 });

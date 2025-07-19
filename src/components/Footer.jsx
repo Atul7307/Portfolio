@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from 'next/link';
 import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
 import bg from '../../public/background/footer.png';
-import logo from '../../public/background/logo.png';
+import logo from '../../public/background/logo.webp';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -31,9 +31,16 @@ const Footer = () => {
           <div className="w-full md:w-[25%] mb-6 md:mb-0">
             <div className="w-full">
 
-            <Image src={logo} alt="image" />
+              <Image
+                src={logo}
+                alt="image"
+                placeholder="blur"
+                loading="lazy"
+                quality={75}
+                
+              />
             </div>
-            
+
           </div>
 
           {/* Quick links */}
@@ -49,7 +56,7 @@ const Footer = () => {
               <Link href="/projects" className="hover:text-white transition-colors">
                 Projects
               </Link>
-             
+
               <Link href="/contact" className="hover:text-white transition-colors">
                 Contact
               </Link>

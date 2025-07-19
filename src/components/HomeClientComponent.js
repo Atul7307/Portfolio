@@ -4,8 +4,7 @@
 import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
-import at from "../../public/background/At.jpg";
-import ItemLayout from "./about/ItemLayout";
+import at from "../../public/background/At.webp";
 import Link from "next/link";
 
 export default function HomeClientComponent() {

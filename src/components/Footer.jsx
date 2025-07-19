@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from 'next/link';
 import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
-import bg from '../../public/background/footer.png';
+import bg from '../../public/background/footer.webp';
 import logo from '../../public/background/logo.webp';
 
 const Footer = () => {

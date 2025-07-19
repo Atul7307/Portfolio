@@ -3,7 +3,7 @@ import { Environment } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import clsx from "clsx";
 import React, { Suspense } from "react";
-import RippleLoader from "./Loader/RippleLoader";
+import ThreeJSLoader from "./Loader/ThreeJSLoader";
 
 const RenderModel = ({ children, className }) => {
   return (
@@ -14,7 +14,7 @@ const RenderModel = ({ children, className }) => {
       frameloop="demand"
       gl={{ powerPreference: "low-power" }}
     >
-      <Suspense fallback={<RippleLoader />}>{children}</Suspense>
+      <Suspense fallback={<ThreeJSLoader />}>{children}</Suspense>
       <Environment preset="dawn" />
     </Canvas>
   );

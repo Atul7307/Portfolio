@@ -5,7 +5,6 @@ import logo from '../../public/background/logo.webp';
 
 import dynamic from "next/dynamic";
 import HomeClientComponent from "@/components/HomeClientComponent";
-import RippleLoader from "@/components/Loader/RippleLoader";
 import LoadingCircleSpinner from "@/components/Loader/loadingCircleSpinner";
 
 const RenderModel = dynamic(() => import("@/components/RenderModel"), {
